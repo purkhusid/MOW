@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MOW.DotNetCoreApi
 {
@@ -7,8 +8,9 @@ namespace MOW.DotNetCoreApi
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
+                .UseKestrel()
                 .Build();
 
             host.Run();
