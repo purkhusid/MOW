@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Hosting;
 
 namespace MOW.DotNetCoreApi
 {
@@ -9,6 +6,12 @@ namespace MOW.DotNetCoreApi
     {
         public static void Main(string[] args)
         {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
         }
     }
 }
